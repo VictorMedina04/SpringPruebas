@@ -30,6 +30,14 @@ public class Alumno {
 	@JoinColumn(foreignKey = @ForeignKey(name = "fk_alumno_curso"))
 	private Curso curso;
 
+	public Alumno(String nombre, String apellidos, String email, Curso curso) {
+		super();
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+		this.email = email;
+		this.curso = curso;
+	}
+
 	public Alumno(String nombre, String apellidos, String email) {
 		super();
 		this.nombre = nombre;

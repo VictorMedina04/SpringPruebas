@@ -24,12 +24,22 @@ public class MainDeMentira {
 		Curso c = new Curso("1ºDAM", "Miguel Campos");
 		cursoRepositorio.save(c);
 
+//		Curso c1 = Curso.builder().nombre("Angel").nombre("2ºDAM").build();
+//		cursoRepositorio.save(c1);
+
+		Alumno a3 = Alumno.builder().nombre("Luis Miguel").apellidos("Lopez").email("luismi@gmail.com").build();
+
+		Alumno a4 = Alumno.builder().email("svd").nombre("Pepe").apellidos("Gomez").build();
+
 		Alumno a = new Alumno("Luis Miguel", "López Magaña", "luismi.lopez@salesianos.edu");
 		a.addToCurso(c);
+
 		Alumno a1 = new Alumno("Ángel", "Naranjo González", "angel.naranjo@salesianos.edu");
 		a1.addToCurso(c);
+
 		Alumno a2 = new Alumno("Rafael", "Villar Liñán", "rafael.villar@salesianos.edu");
 		a2.addToCurso(c);
+
 		alumnoRepositorio.save(a);
 		alumnoRepositorio.save(a1);
 		alumnoRepositorio.save(a2);
