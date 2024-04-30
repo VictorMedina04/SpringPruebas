@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<form method="post" th:action="addProducto" th:object="${productoForm}">
+
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="Name">Nombre</label>
+			<div class="col-md-4">
+				<input id="Name" name="Name" placeholder="Nombre del producto" class="form-control input-md" type="text"
+					th:field="*{name}" /> <span class="help-block">help</span>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="textarea">Descripción</label>
+			<div class="col-md-4">
+				<textarea class="form-control" id="textarea" name="textarea"
+					th:field="*{description}">default text</textarea>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-md-4 control-label" for="textinput">Precio</label>
+			<div class="col-md-4">
+				<input id="textinput" name="textinput" placeholder="Con dos decimales" class="form-control input-md"
+					type="text" th:field="*{price}" /> <span class="help-block">help</span>
+			</div>
+
+		</div>
+
+		<ul>
+			<li th:each="tipoProducto : ${tipos}">
+				<input type="radio" th:field="*{tipo}" th:value="${tipoProducto}" />
+				<label th:for="${#ids.prev('tipo')}" th:text="${tipoProducto}">Tipo de producto</label>
+			</li>
+		</ul>
+
+
+		<div>
+			<input type="date" id="FCaducidad" name="fCadu" th:field="*{FCaducidad}" th:value="*{FCaducidad}" />
+		</div>
+
+		<input type="submit" value="Submit" />
+	</form>
+</body>
+
+</html>
